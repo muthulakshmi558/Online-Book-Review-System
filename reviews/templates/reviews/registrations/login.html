@@ -1,0 +1,18 @@
+{% extends 'reviews/Layout/base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
+    <h1 class="text-2xl font-bold mb-4">Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-900">
+            Login
+        </button>
+    </form>
+    <p class="mt-4">
+        Don't have an account? 
+        <a href="{% url 'signup' %}" class="text-green-700 hover:text-green-900">Signup here</a>
+    </p>
+</div>
+{% endblock %}

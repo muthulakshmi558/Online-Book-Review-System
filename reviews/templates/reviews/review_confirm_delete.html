@@ -1,0 +1,16 @@
+{% extends 'reviews/Layout/base.html' %}
+{% block content %}
+
+<div class="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 text-center">
+    <h1 class="text-2xl font-bold text-red-600 mb-4">Delete Review</h1>
+    <p class="mb-6">Are you sure you want to delete your review for "<strong>{{ object.book.title }}</strong>"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="flex justify-center gap-4">
+            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-800">Yes, Delete</button>
+            <a href="{{ object.book.get_absolute_url }}" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
